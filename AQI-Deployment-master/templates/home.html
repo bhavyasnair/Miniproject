@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<!-- <link rel="stylesheet" type="text/css" href="../static/css/styles.css"> -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/styles.css') }}">
+
+
+	<style>
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5px + 2vmin);
+  color: white;
+}
+	</style>
+</head>
+<body>
+
+	<!-- <header>
+		<div class="container">
+		<div id="brandname">
+			Machine Learning App with Flask
+		</div>
+		<h2>Air Quality Index Prediction</h2>
+		
+	</div>
+	</header> -->
+	<div class="App">
+        <header class="App-header">
+      
+          <form action="{{ url_for('predict')}}" method="POST">
+
+            <label>Enter Average Temperature (&deg;C)</label>
+            <input type='number' name='T' home  step="0.01" />
+            <br /><br />
+
+            <label>Enter Max Temperature (&deg;C)</label>
+            <input type='number'  name='TM'   step="0.01" />
+            <br /><br />
+
+            <label>Enter Min Temperature (&deg;C)</label>
+            <input type='number'  name='Tm'   step="0.01" />
+            <br /><br />
+
+            <label>Enter Average Relative Humidity (%)</label>
+            <input type='number' name='H'   step="0.01" />
+            <br /><br />
+
+            <label>Enter Total Rainfall/Snowmelt (mm)</label>
+            <input type='number'  name='PP'   step="0.01" />
+            <br /><br />
+
+            <label>Enter Average Visibility (km)</label>
+            <input type='number'  name='VV'   step="0.01" />
+            <br /><br />
+
+            <label>Enter Average Wind Speed (km/h)</label>
+            <input type='number' name='V'   step="0.01" />
+            <br /><br />
+
+            <label>Enter Maximum Sustained Wind Speed (km/h)</label>
+            <input type='number'  name='VM'   step="0.01" />
+            <br /><br />
+
+           
+           
+         
+
+            <input type='submit' />
+
+          </form>
+
+
+
+
+          <h1 style="color: white">  AQI index :    {{prediction}}</h1>
+
+        
+        </header>
+ 
+      </div>
+	
+	
+
+</body>
+</html>
